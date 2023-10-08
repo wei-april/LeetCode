@@ -16,8 +16,11 @@ public class Leet2656 {
     }
 
     public static int maximizeSum(int[] nums, int k) {
-        int i = Arrays.stream(nums).max().getAsInt();
+        int max = 0;
+        for (int j = 0; j < nums.length; j++) {
+            max = max >= nums[j] ? max : nums[j];
+        }
         int i1 = ((k - 1) * k) / 2;
-        return i * k + i1;
+        return max * k + i1;
     }
 }
